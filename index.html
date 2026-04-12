@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comparatif Transport</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    :root {
+      --app-max-width: 1100px;
+    }
+    html, body {
+      height: 100%;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      overflow: hidden;
+    }
+    @media (max-width: 640px) {
+      body {
+        overflow: auto;
+      }
+    }
+    .fade-in {
+      animation: fadeIn 180ms ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <div class="mx-auto flex h-screen max-w-[var(--app-max-width)] flex-col px-4 py-4 sm:px-6 sm:py-6">
+
+    <!-- Header -->
+    <header class="shrink-0 rounded-3xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:px-6">
+      <div class="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <div class="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
+            <span>📊</span>
+            Comparatif prix transport
+          </div>
+          <h1 class="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
+            Bus, train, train réformé et voiture
+          </h1>
+          <p class="mt-1 text-sm text-slate-500">
+            Le CSV est chargé depuis une URL GitHub Pages.
+          </p>
+        </div>
+
+        <div class="rounded-2xl bg-slate-50 px-4 py-3 text-xs text-slate-600">
+          <div class="font-semibold text-slate-700">Paramètres modifiables</div>
+          <div class="mt-1 leading-5">
+            consommation voiture, prix carburant, tarif bus, tarif train, réduction réforme.
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="mt-4 flex min-h-0 flex-1 flex-col gap-4 overflow-hidden">
+
+      <!-- Controls -->
+      <section class="shrink-0 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_1fr_auto] lg:items-end">
+          <div>
+            <label for="depart-input" class="mb-2 block text-sm font-medium text-slate-700">Ville de départ</label>
+            <input
+              id="depart-input"
+              type="text"
+              list="depart-list"
+              placeholder="Ex : Paris"
+              class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-base outline-none transition focus:border-blue-500 focus:bg-white"
+            />
+            <datalist id="depart-list"></datalist>
+          </div>
+
+          <div>
+            <label for="arrivee-input" class="mb-2 block text-sm font-medium text-slate-700">Ville d’arrivée</label>
+            <input
+              id="arrivee-input"
+              type="text"
+              list="arrivee-list"
+              placeholder="Ex : Lyon"
+              class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-base outline-none transition focus:border-blue-500 focus:bg-white"
+            />
+            <datalist id="arrivee-list"></datalist>
+          </div>
+
+          <button
+            id="search-button"
+            class="rounded-2xl bg-blue-600 px-5 py-3 font-semibold text-white shadow-sm transition hover:bg-blue-700 active:bg-blue-800"
+          >
+            Voir le comparatif
+          </button>
+        </div>
+
+        <div id="status-bar" class="mt-3 text-sm text-slate-500">
+          Chargement du CSV…
+        </div>
+      </section>
+
+      <!-- Result -->
+      <section id="result" class="fade-in hidden min-h-0 flex-1 overflow-hidden rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
+        <div class="mb-3 flex items-center justify-between gap-3">
+          <div>
+            <div class="text-sm text-slate-500">Trajet sélectionné</div>
+            <div class="text-xl font-bold sm:text-2xl">
+              <span id="result-depart">—</span>
+              <span class="mx-2 text-slate-300">→</span>
+              <span id="result-arrivee">—</span>
+            </div>
+          </div>
+          <div id="result-meta" class="text-right text-sm text-slate-500"></div>
+        </div>
+
+        <div class="grid h-full min-h-0 grid-cols-1 gap-3 overflow-hidden sm:grid-cols-2 xl:grid-cols-5">
+          <!-- Bus -->
+          <div class="flex min-h-0 flex-col justify-between rounded-3xl bg-sky-50 p-4 text-center ring-1 ring-sky-100">
+            <div>
+              <div class="text-3xl">🚌</div>
+              <div class="mt-1 text-sm font-semibold uppercase tracking-wide text-sky-700">Bus</div>
+            </div>
+            <div id="bus-price" class="mt-3 text-3xl font-bold tabular-nums text-sky-900">—</div>
+            <div class="mt-1 text-xs text-slate-500">prix total</div>
+          </div>
+
+          <!-- Train -->
+          <div class="flex min-h-0 flex-col justify-between rounded-3xl bg-emerald-50 p-4 text-center ring-1 ring-emerald-100">
+            <div>
+              <div class="text-3xl">🚄</div>
+              <div class="mt-1 text-sm font-semibold uppercase tracking-wide text-emerald-700">Train</div>
+            </div>
+            <div id="train-price" class="mt-3 text-3xl font-bold tabular-nums text-emerald-900">—</div>
+            <div class="mt-1 text-xs text-slate-500">prix total</div>
+          </div>
+
+          <!-- Train réforme -->
+          <div class="flex min-h-0 flex-col justify-between rounded-3xl border-2 border-emerald-500 bg-emerald-100 p-4 text-center shadow-sm">
+            <div>
+              <div class="text-3xl">🚄</div>
+              <div class="mt-1 text-sm font-bold uppercase tracking-wide text-emerald-800">Train réformé</div>
+            </div>
+            <div id="train-reform-price" class="mt-3 text-3xl font-extrabold tabular-nums text-emerald-950">—</div>
+            <div id="train-saving" class="mt-1 text-xs font-medium text-emerald-800">—</div>
+          </div>
+
+          <!-- Voiture 2 -->
+          <div class="flex min-h-0 flex-col justify-between rounded-3xl bg-amber-50 p-4 text-center ring-1 ring-amber-100">
+            <div>
+              <div class="text-3xl">🚗</div>
+              <div class="mt-1 text-sm font-semibold uppercase tracking-wide text-amber-700">Voiture 2 pers.</div>
+            </div>
+            <div id="car2-price" class="mt-3 text-3xl font-bold tabular-nums text-amber-900">—</div>
+            <div class="mt-1 text-xs text-slate-500">carburant + péage ÷ 2</div>
+          </div>
+
+          <!-- Voiture 4 -->
+          <div class="flex min-h-0 flex-col justify-between rounded-3xl bg-orange-50 p-4 text-center ring-1 ring-orange-100">
+            <div>
+              <div class="text-3xl">🚗</div>
+              <div class="mt-1 text-sm font-semibold uppercase tracking-wide text-orange-700">Voiture 4 pers.</div>
+            </div>
+            <div id="car4-price" class="mt-3 text-3xl font-bold tabular-nums text-orange-900">—</div>
+            <div class="mt-1 text-xs text-slate-500">carburant + péage ÷ 4</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // =========================
+    // CONFIGURATION MODIFIABLE
+    // =========================
+    const CONFIG = {
+      CSV_URL: 'https://nbuton.github.io/impact-reforme-train/comparatif.csv',
+      CAR_CONSUMPTION_L_PER_100KM: 4.7,
+      FUEL_PRICE_EUR_PER_L: 1.75,
+      TRAIN_PRICE_EUR_PER_100KM: 12,
+      BUS_PRICE_EUR_PER_100KM: 6.7,
+      TRAIN_REFORM_DISCOUNT: 0.45 // 45% de réduction
+    };
+
+    const journeys = new Map();
+    const cities = new Set();
+
+    const els = {
+      departInput: document.getElementById('depart-input'),
+      arriveeInput: document.getElementById('arrivee-input'),
+      departList: document.getElementById('depart-list'),
+      arriveeList: document.getElementById('arrivee-list'),
+      searchButton: document.getElementById('search-button'),
+      statusBar: document.getElementById('status-bar'),
+      result: document.getElementById('result'),
+      resultDepart: document.getElementById('result-depart'),
+      resultArrivee: document.getElementById('result-arrivee'),
+      resultMeta: document.getElementById('result-meta'),
+      busPrice: document.getElementById('bus-price'),
+      trainPrice: document.getElementById('train-price'),
+      trainReformPrice: document.getElementById('train-reform-price'),
+      trainSaving: document.getElementById('train-saving'),
+      car2Price: document.getElementById('car2-price'),
+      car4Price: document.getElementById('car4-price')
+    };
+
+    function eur(value) {
+      return new Intl.NumberFormat('fr-FR', {
+        style: 'currency',
+        currency: 'EUR',
+        maximumFractionDigits: 2,
+        minimumFractionDigits: 2
+      }).format(value);
+    }
+
+    function parseNumber(value) {
+      const n = Number(String(value).replace(',', '.').trim());
+      return Number.isFinite(n) ? n : 0;
+    }
+
+    function parseCSV(text) {
+      journeys.clear();
+      cities.clear();
+
+      const lines = text
+        .replace(/\r/g, '')
+        .split('\n')
+        .map(line => line.trim())
+        .filter(Boolean);
+
+      if (lines.length < 2) {
+        throw new Error('CSV vide ou invalide');
+      }
+
+      for (let i = 1; i < lines.length; i++) {
+        const values = lines[i].split(';').map(v => v.trim());
+        if (values.length < 5) continue;
+
+        const depart = values[0];
+        const arrivee = values[1];
+        const distanceTrain = parseNumber(values[2]);
+        const distanceVoiture = parseNumber(values[3]);
+        const tarifPeage = parseNumber(values[4]);
+
+        if (!depart || !arrivee) continue;
+
+        const data = {
+          distance_train: distanceTrain,
+          distance_voiture: distanceVoiture,
+          tarif_peage: tarifPeage
+        };
+
+        journeys.set(`${depart}-${arrivee}`, data);
+        journeys.set(`${arrivee}-${depart}`, data);
+        cities.add(depart);
+        cities.add(arrivee);
+      }
+    }
+
+    function populateDatalists() {
+      const sortedCities = Array.from(cities).sort((a, b) => a.localeCompare(b, 'fr'));
+      els.departList.innerHTML = '';
+      els.arriveeList.innerHTML = '';
+
+      for (const city of sortedCities) {
+        const opt1 = document.createElement('option');
+        opt1.value = city;
+        els.departList.appendChild(opt1);
+
+        const opt2 = document.createElement('option');
+        opt2.value = city;
+        els.arriveeList.appendChild(opt2);
+      }
+    }
+
+    function computePrices(data) {
+      const busPrice = (data.distance_voiture / 100) * CONFIG.BUS_PRICE_EUR_PER_100KM;
+      const trainPrice = (data.distance_train / 100) * CONFIG.TRAIN_PRICE_EUR_PER_100KM;
+      const trainReformPrice = trainPrice * (1 - CONFIG.TRAIN_REFORM_DISCOUNT);
+
+      const fuelCost = (data.distance_voiture / 100) * CONFIG.CAR_CONSUMPTION_L_PER_100KM * CONFIG.FUEL_PRICE_EUR_PER_L;
+      const carTotal = fuelCost + data.tarif_peage;
+
+      return {
+        busPrice,
+        trainPrice,
+        trainReformPrice,
+        trainSaving: trainPrice - trainReformPrice,
+        car2Price: carTotal / 2,
+        car4Price: carTotal / 4
+      };
+    }
+
+    function searchJourney() {
+      const depart = els.departInput.value.trim();
+      const arrivee = els.arriveeInput.value.trim();
+
+      if (!depart || !arrivee) {
+        alert('Veuillez sélectionner une ville de départ et une ville d’arrivée.');
+        return;
+      }
+
+      const data = journeys.get(`${depart}-${arrivee}`);
+      if (!data) {
+        els.result.classList.add('hidden');
+        alert(`Aucun trajet trouvé entre ${depart} et ${arrivee}.`);
+        return;
+      }
+
+      const prices = computePrices(data);
+
+      els.resultDepart.textContent = depart;
+      els.resultArrivee.textContent = arrivee;
+      els.resultMeta.textContent = `${data.distance_train.toFixed(1)} km train • ${data.distance_voiture.toFixed(1)} km route • ${eur(data.tarif_peage)} de péage`;
+
+      els.busPrice.textContent = eur(prices.busPrice);
+      els.trainPrice.textContent = eur(prices.trainPrice);
+      els.trainReformPrice.textContent = eur(prices.trainReformPrice);
+      els.trainSaving.textContent = `Économie : ${eur(prices.trainSaving)} (-${Math.round(CONFIG.TRAIN_REFORM_DISCOUNT * 100)}%)`;
+      els.car2Price.textContent = eur(prices.car2Price);
+      els.car4Price.textContent = eur(prices.car4Price);
+
+      els.result.classList.remove('hidden');
+    }
+
+    async function loadCSVFromURL() {
+      try {
+        els.statusBar.textContent = 'Chargement du CSV…';
+        const response = await fetch(CONFIG.CSV_URL, { cache: 'no-store' });
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const text = await response.text();
+        parseCSV(text);
+        populateDatalists();
+
+        els.statusBar.textContent = `CSV chargé : ${cities.size} villes, ${Math.max(0, journeys.size / 2)} trajets.`;
+      } catch (error) {
+        console.error(error);
+        els.statusBar.textContent = 'Impossible de charger le CSV. Vérifie l’URL et le dépôt GitHub Pages.';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadCSVFromURL();
+
+      els.searchButton.addEventListener('click', searchJourney);
+      els.departInput.addEventListener('keydown', e => {
+        if (e.key === 'Enter') searchJourney();
+      });
+      els.arriveeInput.addEventListener('keydown', e => {
+        if (e.key === 'Enter') searchJourney();
+      });
+    });
+  </script>
+</body>
+</html>
+
