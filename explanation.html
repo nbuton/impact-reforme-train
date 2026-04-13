@@ -3,142 +3,210 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Explication de la réforme du train</title>
+  <title>Réforme du Rail : Le Projet -49,5%</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-    html, body { height: 100%; }
-    body { font-family: 'Inter', sans-serif; }
-    .glass { background: rgba(255,255,255,.8); backdrop-filter: blur(10px); }
+    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    .progress-segment:hover { filter: brightness(1.1); transform: scaleY(1.05); transition: all 0.2s; }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
-  <div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
-    <header class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-      <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-        <div>
-          <div class="inline-flex items-center gap-2 rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">Réforme du train</div>
-          <h1 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">Comment viser -45% sur le train</h1>
-          <p class="mt-2 max-w-3xl text-sm text-slate-600 sm:text-base">
-            L'idée centrale est simple : si l'on rachète les péages TGV et que l'on réoriente ce coût vers le financement public de l'infrastructure, une partie importante du prix payé par le voyageur peut baisser mécaniquement.
-            La page ci-dessous présente l'effet sur les prix et les principaux impacts attendus.
-          </p>
-        </div>
-        <a href="index.html" class="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-5 py-3 font-semibold text-white shadow-sm transition hover:bg-slate-700">← Retour au comparatif</a>
+<body class="bg-slate-50 text-slate-900 leading-relaxed">
+
+  <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-md">
+    <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">🚄</span>
+        <span class="font-black tracking-tight text-xl uppercase">Réforme du <span class="text-indigo-600">Rail</span></span>
       </div>
-    </header>
+      <a href="index.html" class="text-sm font-bold text-slate-600 hover:text-indigo-600 transition">← Retour au comparatif</a>
+    </div>
+  </header>
 
-    <main class="mt-6 grid gap-6">
-      <section class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-        <div class="mb-4 flex items-center gap-3">
-          <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-100 text-2xl">🚄</div>
-          <div>
-            <h2 class="text-xl font-bold">1) Le principe du -45%</h2>
-            <p class="text-sm text-slate-500">La baisse vient d'un transfert de financement, pas d'une baisse de qualité.</p>
+  <main class="mx-auto max-w-4xl px-4 py-12">
+    
+    <section class="mb-16 text-center">
+      <div class="inline-flex items-center gap-2 rounded-full bg-indigo-50 px-4 py-1.5 text-xs font-bold text-indigo-700 mb-6 uppercase tracking-wider">
+        Rapport de Réforme 2026
+      </div>
+      <h1 class="text-4xl font-extrabold tracking-tight sm:text-6xl mb-6">
+        Comment viser <span class="text-indigo-600">-49,5%</span> sur le prix du train
+      </h1>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+        L'idée centrale est structurelle : si l'on rachète les péages TGV et que l'on réoriente ce coût vers le financement public, le prix payé par le voyageur chute mécaniquement.
+      </p>
+    </section>
+
+    <section class="mb-12 space-y-8">
+      <div class="prose prose-slate max-w-none">
+        <h2 class="text-3xl font-bold flex items-center gap-3">
+          <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-600 text-white text-sm">01</span>
+          Où va l'argent de votre billet ?
+        </h2>
+        <p class="text-slate-600">
+          En France, les péages d'infrastructure (le droit de circuler sur les rails) représentent la plus grosse part du prix. Source : <a href="https://www.tgvinoui.sncf/tarifs-et-cartes/comprendre-nos-prix/tout-savoir-sur-nos-prix" class="text-indigo-600 underline">SNCF Voyageurs</a>.
+        </p>
+      </div>
+
+      <div class="rounded-3xl border border-slate-200 bg-white p-8 shadow-xl">
+        <div class="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <h3 class="text-lg font-bold">Répartition du coût d'un billet TGV</h3>
+            <span class="text-xs font-bold text-slate-400 bg-slate-100 px-3 py-1 rounded-full uppercase">Données 2024</span>
+        </div>
+        
+        <div class="relative h-20 w-full flex overflow-hidden rounded-2xl bg-slate-100 mb-10 shadow-inner p-1">
+          <div class="progress-segment flex flex-col items-center justify-center bg-indigo-500 text-white rounded-l-xl" style="width: 40%">
+            <span class="text-xl">🛣️</span>
+            <span class="text-[10px] font-black">40%</span>
+          </div>
+          <div class="progress-segment flex flex-col items-center justify-center bg-emerald-500 text-white border-l border-white/20" style="width: 25%">
+            <span class="text-xl">🔧</span>
+            <span class="text-[10px] font-black">25%</span>
+          </div>
+          <div class="progress-segment flex flex-col items-center justify-center bg-amber-500 text-white border-l border-white/20" style="width: 20%">
+            <span class="text-xl">👨‍✈️</span>
+            <span class="text-[10px] font-black">20%</span>
+          </div>
+          <div class="progress-segment flex flex-col items-center justify-center bg-sky-500 text-white border-l border-white/20" style="width: 5%">
+            <span class="text-lg">⚡</span>
+            <span class="text-[8px] font-black">5%</span>
+          </div>
+          <div class="progress-segment flex flex-col items-center justify-center bg-slate-400 text-white border-l border-white/20 rounded-r-xl" style="width: 10%">
+            <span class="text-xl">🏛️</span>
+            <span class="text-[10px] font-black">10%</span>
           </div>
         </div>
-        <div class="grid gap-4 md:grid-cols-2">
-          <div class="rounded-2xl bg-slate-50 p-4">
-            <p class="text-sm font-semibold text-slate-700">Ce que change la réforme</p>
-            <p class="mt-2 text-sm leading-6 text-slate-600">
-              Le train à grande vitesse paie aujourd'hui une partie importante de ses coûts via les péages d'infrastructure.
-              Si ces péages sont rachetés ou compensés par la puissance publique, le prix final peut baisser fortement sans toucher à l'offre commerciale.
-            </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div class="flex items-center gap-3 p-3 rounded-2xl border border-indigo-50 bg-indigo-50/30">
+            <div class="text-2xl">🛣️</div>
+            <div>
+              <p class="text-[10px] font-bold text-indigo-600 uppercase">Péages</p>
+              <p class="text-lg font-black leading-none">40%</p>
+            </div>
           </div>
-          <div class="rounded-2xl bg-slate-50 p-4">
-            <p class="text-sm font-semibold text-slate-700">Ce que cela permet</p>
-            <p class="mt-2 text-sm leading-6 text-slate-600">
-              Un train moins cher devient plus facile à choisir face à la voiture et à l'avion, surtout sur les axes où le temps porte déjà naturellement en faveur du rail.
-            </p>
+          <div class="flex items-center gap-3 p-3 rounded-2xl border border-emerald-50 bg-emerald-50/30">
+            <div class="text-2xl">🔧</div>
+            <div>
+              <p class="text-[10px] font-bold text-emerald-600 uppercase">Entretien</p>
+              <p class="text-lg font-black leading-none">25%</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-2xl border border-amber-50 bg-amber-50/30">
+            <div class="text-2xl">👨‍✈️</div>
+            <div>
+              <p class="text-[10px] font-bold text-amber-600 uppercase">Personnel</p>
+              <p class="text-lg font-black leading-none">20%</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-2xl border border-sky-50 bg-sky-50/30">
+            <div class="text-2xl">⚡</div>
+            <div>
+              <p class="text-[10px] font-bold text-sky-600 uppercase">Énergie</p>
+              <p class="text-lg font-black leading-none">5%</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-2xl border border-slate-100 bg-slate-100/30">
+            <div class="text-2xl">🏛️</div>
+            <div>
+              <p class="text-[10px] font-bold text-slate-500 uppercase">TVA</p>
+              <p class="text-lg font-black leading-none">10%</p>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      <section class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 class="text-xl font-bold">2) Comparaison du financement du rail</h2>
-        <p class="mt-2 text-sm text-slate-600">Chiffres fournis dans votre document, présentés comme ordre de grandeur par habitant.</p>
-        <div class="mt-4 overflow-hidden rounded-2xl border border-slate-200">
-          <table class="min-w-full divide-y divide-slate-200 text-left text-sm">
-            <thead class="bg-slate-50 text-slate-700">
-              <tr>
-                <th class="px-4 py-3 font-semibold">Pays</th>
-                <th class="px-4 py-3 font-semibold">Financement actuel (€/hab)</th>
-                <th class="px-4 py-3 font-semibold">Avec rachat des péages TGV</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-100 bg-white">
-              <tr><td class="px-4 py-3">Suisse</td><td class="px-4 py-3">477 €</td><td class="px-4 py-3">477 €</td></tr>
-              <tr><td class="px-4 py-3">Allemagne</td><td class="px-4 py-3">115 €</td><td class="px-4 py-3">115 €</td></tr>
-              <tr><td class="px-4 py-3">Italie</td><td class="px-4 py-3">92 €</td><td class="px-4 py-3">92 €</td></tr>
-              <tr class="bg-emerald-50/70"><td class="px-4 py-3 font-semibold">France</td><td class="px-4 py-3 font-semibold">51 €</td><td class="px-4 py-3 font-semibold">87 €</td></tr>
-              <tr><td class="px-4 py-3">Espagne</td><td class="px-4 py-3">70 €</td><td class="px-4 py-3">70 €</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="mt-3 text-sm leading-6 text-slate-600">
-          L'effet politique recherché est clair : rapprocher la France du niveau d'effort de ses voisins, ce qui améliore la fréquence, la robustesse du réseau et la qualité perçue du service.
+      <div class="rounded-3xl bg-slate-900 p-8 text-white">
+        <h4 class="font-bold text-indigo-400 mb-4 flex items-center gap-2 text-xl"><span>🧮</span> Comprendre le calcul : -49,5%</h4>
+        <p class="text-slate-300 mb-6">
+          Si l'on additionne 40% de péages et 10% de TVA, on pourrait s'attendre à une baisse de 50%. Mais la TVA s'applique sur le prix hors-taxes (HT).
         </p>
-      </section>
-
-      <section class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 class="text-xl font-bold">3) Impact écologique</h2>
-        <div class="mt-4 grid gap-4 md:grid-cols-3">
-          <div class="rounded-2xl bg-emerald-50 p-4">
-            <p class="font-semibold text-emerald-900">Moins d'émissions</p>
-            <p class="mt-2 text-sm leading-6 text-emerald-950/80">Une partie des trajets bascule de la voiture ou de l'avion vers le rail, ce qui réduit les émissions par voyageur-kilomètre.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 font-mono text-sm">
+          <div class="space-y-2">
+            <p class="text-slate-500 text-xs font-bold uppercase tracking-wider mb-2">Situation Actuelle</p>
+            <div class="flex justify-between py-2 border-b border-slate-800"><span>Prix de base (HT)</span> <span>90,00 €</span></div>
+            <div class="flex justify-between py-2 border-b border-slate-800 text-indigo-400"><span>dont Péages</span> <span>40,00 €</span></div>
+            <div class="flex justify-between py-2 border-b border-slate-800"><span>TVA (10%)</span> <span>9,00 €</span></div>
+            <div class="flex justify-between py-2 text-lg font-bold text-white uppercase"><span>Total TTC</span> <span>99,00 €</span></div>
           </div>
-          <div class="rounded-2xl bg-emerald-50 p-4">
-            <p class="font-semibold text-emerald-900">Effet réseau</p>
-            <p class="mt-2 text-sm leading-6 text-emerald-950/80">Des prix plus bas augmentent le remplissage et rendent les liaisons plus efficaces, donc plus intéressantes à maintenir et à développer.</p>
-          </div>
-          <div class="rounded-2xl bg-emerald-50 p-4">
-            <p class="font-semibold text-emerald-900">Moins de dépendance au pétrole</p>
-            <p class="mt-2 text-sm leading-6 text-emerald-950/80">Le train électrifié repose davantage sur une énergie locale et décarbonable que sur des carburants fossiles importés.</p>
+          <div class="bg-indigo-950/50 p-6 rounded-2xl border border-indigo-500/30">
+            <p class="text-indigo-400 text-xs font-bold uppercase tracking-wider mb-2">Après la Réforme</p>
+            <div class="flex justify-between py-2 border-b border-indigo-900"><span>Prix de base (HT)</span> <span>50,00 €</span></div>
+            <div class="flex justify-between py-2 border-b border-indigo-900 text-rose-400 italic"><span>Péages supprimés</span> <span>- 40,00 €</span></div>
+            <div class="flex justify-between py-2 border-b border-indigo-900 text-rose-400 italic"><span>TVA supprimée</span> <span>- 9,00 €</span></div>
+            <div class="flex justify-between py-2 text-2xl font-black text-emerald-400"><span>Nouveau Prix</span> <span>50,00 €</span></div>
+            <p class="mt-4 text-[10px] text-indigo-300 italic">Gain réel : 49€ sur 99€, soit exactement 49,49% de baisse.</p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 class="text-xl font-bold">4) Attractivité face aux autres modes</h2>
-        <p class="mt-2 text-sm leading-6 text-slate-600">
-          Le train devient plus compétitif sur trois leviers : le prix, la simplicité et la fiabilité. Quand l'écart tarifaire avec la voiture ou l'avion se réduit, la décision d'achat change vite.
-          Un billet plus accessible peut aussi améliorer l'usage hors pointe, lisser la demande et remplir davantage les trains.
+    <section class="mb-16 space-y-12">
+      <div class="prose prose-slate max-w-none">
+        <h2 class="text-3xl font-bold flex items-center gap-3">
+          <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-600 text-white text-sm">02</span>
+          Comment financer ce choix ?
+        </h2>
+        <p class="text-slate-600">
+          La réforme coûte environ <strong>3,125 Milliards d'euros par an</strong> (2,5 Mds pour les péages et 625 M pour la TVA). C'est un investissement pour le climat.
         </p>
-      </section>
+      </div>
 
-      <section class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 class="text-xl font-bold">5) Les cadeaux fiscaux à l'aviation</h2>
-        <p class="mt-2 text-sm leading-6 text-slate-600">
-          L'avion est moins soutenu par des subventions visibles que par des exonérations fiscales et des aides indirectes. Dans votre synthèse, l'ordre de grandeur retenu pour la France est d'environ 5 Md€ de niches fiscales, soit environ 72 €/habitant, auxquels s'ajoutent environ 330 M€ de soutiens directs ou de R&amp;D, soit environ 5 €/habitant.
-        </p>
-        <div class="mt-4 grid gap-4 md:grid-cols-2">
-          <div class="rounded-2xl bg-amber-50 p-4">
-            <p class="font-semibold text-amber-900">Exonérations fiscales</p>
-            <p class="mt-2 text-sm leading-6 text-amber-950/80">Absence de taxe sur le kérosène et TVA nulle sur de nombreux vols internationaux : ce sont des soutiens indirects massifs.</p>
+      <div class="grid gap-6 md:grid-cols-2">
+        <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl">💸</span>
+            <h4 class="font-bold">Investissement Train</h4>
           </div>
-          <div class="rounded-2xl bg-amber-50 p-4">
-            <p class="font-semibold text-amber-900">Aides directes</p>
-            <p class="mt-2 text-sm leading-6 text-amber-950/80">Soutien à certaines lignes d'aménagement du territoire, aux aéroports régionaux et à la recherche aéronautique.</p>
-          </div>
+          <p class="text-4xl font-black text-indigo-600">45 € <span class="text-base font-normal text-slate-400">/ habitant</span></p>
+          <p class="mt-4 text-xs text-slate-500 leading-relaxed">C'est la somme nécessaire pour racheter les péages et supprimer la TVA sur tout le territoire.</p>
         </div>
-      </section>
+        <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl">✈️</span>
+            <h4 class="font-bold">Aides à l'Aviation</h4>
+          </div>
+          <p class="text-4xl font-black text-rose-600">72€ à 87€ <span class="text-base font-normal text-slate-400">/ habitant</span></p>
+          <p class="mt-4 text-xs text-slate-500 leading-relaxed">C'est ce que l'État "donne" chaque année au secteur aérien via l'absence de taxe sur le kérosène.</p>
+        </div>
+      </div>
 
-      <section class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 class="text-xl font-bold">6) Et la voiture ?</h2>
-        <p class="mt-2 text-sm leading-6 text-slate-600">
-          À titre d'ordre de grandeur, les dépenses publiques liées à la voirie locale atteignaient 7,1 Md€ en 2023. Rapporté à environ 69 millions d'habitants, cela représente un peu plus de 100 € par habitant pour ce seul poste, sans compter d'autres dépenses routières et urbaines.
-          La voiture bénéficie donc elle aussi d'une infrastructure publique très importante, mais souvent moins visible que celle du rail.
-        </p>
-      </section>
+      <div class="rounded-3xl bg-white border border-slate-200 p-8">
+        <h3 class="text-2xl font-bold mb-8">Foire aux questions</h3>
+        <div class="space-y-6">
+          <details class="group border-b border-slate-100 pb-4">
+            <summary class="flex cursor-pointer items-center justify-between font-bold text-slate-800 list-none">
+              Est-ce que la qualité du service va baisser ?
+              <span class="text-indigo-600 transition group-open:rotate-180">↓</span>
+            </summary>
+            <p class="mt-4 text-sm text-slate-600">Absolument pas. La réforme ne touche pas aux budgets de maintenance, de personnel ou d'énergie (les 50% restants). Elle change simplement qui paie les "frais de péage" : l'État remplace le voyageur pour encourager le report modal.</p>
+          </details>
+          <details class="group border-b border-slate-100 pb-4">
+            <summary class="flex cursor-pointer items-center justify-between font-bold text-slate-800 list-none">
+              D'où proviennent les 3,125 Milliards ?
+              <span class="text-indigo-600 transition group-open:rotate-180">↓</span>
+            </summary>
+            <p class="mt-4 text-sm text-slate-600">La solution la plus écologique est de réallouer les niches fiscales du kérosène. En réduisant ces cadeaux faits à l'aviation, on dégage plus que nécessaire pour financer le train.</p>
+          </details>
+        </div>
+      </div>
+    </section>
 
-      <section class="rounded-3xl border border-slate-200 bg-slate-900 p-6 text-white shadow-sm">
-        <h2 class="text-xl font-bold">Conclusion</h2>
-        <p class="mt-2 text-sm leading-6 text-slate-200">
-          La réforme n'est pas seulement une baisse de prix. C'est un changement de structure : un rail plus abordable, plus attractif et plus cohérent avec les objectifs climatiques.
-          En parallèle, la comparaison avec l'aviation et la voiture met en évidence que les choix de financement publics orientent très fortement les comportements de mobilité.
-        </p>
-      </section>
-    </main>
-  </div>
+    <section class="rounded-3xl bg-indigo-900 p-10 text-white text-center shadow-2xl">
+      <h2 class="text-3xl font-bold mb-4">Un choix politique simple</h2>
+      <p class="max-w-xl mx-auto text-indigo-100 mb-8">
+        Le train est 10x à 50x moins polluant que l'avion ou la voiture. Baisser son prix, c'est rendre la transition écologique accessible à tous, tout de suite.
+      </p>
+      <a href="index.html" class="inline-block bg-white text-indigo-900 px-8 py-4 rounded-2xl font-black hover:scale-105 transition shadow-lg">
+        DÉCOUVRIR LE COMPARATIF COMPLET
+      </a>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 py-12 text-center text-slate-400 text-sm">
+    <p>&copy; 2026 Projet de Réforme Ferroviaire. Chiffres : SNCF, Fiscalité Aérienne (Rapport 2024).</p>
+  </footer>
+
 </body>
 </html>
