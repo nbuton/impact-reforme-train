@@ -1,6 +1,7 @@
 # Source de données
 - data/communes-france-2025.csv : https://www.data.gouv.fr/datasets/communes-et-villes-de-france-en-csv-excel-json-parquet-et-feather   
 - data/gestionnaires-rrn-2025.csv : https://www.data.gouv.fr/datasets/gestionnaires-du-reseau-routier-national   
+- Investissements des différents États européens dans le rail : https://www.allianz-pro-schiene.de/presse/pressemitteilungen/pro-kopf-investitionen-2023/ 
 
 # 📊 Méthodologie du comparateur de mobilité
 

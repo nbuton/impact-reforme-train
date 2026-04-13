@@ -151,9 +151,18 @@
       </div>
     </section>
   </main>
+  <hr> <section>
+
+  <p id="note1">
+    <small>
+      1. Distance du trajet proposée par l'API SNCF en TGV (les trajets en intercités ou TER ne sont pas considérés) ; peut inclure des correspondances.
+      <a href="#ref1" title="Retour au texte">↩</a>
+    </small>
+  </p>
+</section>
 
   <footer class="mt-auto py-8 border-t border-slate-200 text-center text-[9px] text-slate-400 font-medium uppercase tracking-[0.2em]">
-    © 2026 RailLibre — Mobilité Décarbonée
+    © 2026 Réforme du Rail - Mobilité Décarbonée
   </footer>
 
   <script>
@@ -229,7 +238,7 @@
 
       els.resultDepart.textContent = els.departInput.value;
       els.resultArrivee.textContent = els.arriveeInput.value;
-      els.resultMeta.textContent = `${data.distance_train}km rail • ${data.distance_voiture}km route`;
+      els.resultMeta.innerHTML = `${data.distance_train}km rail <sup><a href="#note1" id="ref1">1</a></sup> • ${data.distance_voiture}km route`;
       els.busPrice.textContent = eur(busP);
       els.trainPrice.textContent = eur(trainP);
       els.trainReformPrice.textContent = eur(reformP);
