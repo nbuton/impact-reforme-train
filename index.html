@@ -45,7 +45,7 @@
           <div class="inline-flex items-center gap-2 rounded-full bg-indigo-500/30 px-3 py-1 text-[10px] font-bold uppercase tracking-wider mb-4">
             Simulateur de tarifs 2026
           </div>
-          <h1 class="text-2xl sm:text-4xl font-extrabold mb-4 leading-tight">Le train à <span class="text-emerald-400">-49,5%</span>, ça donne quoi ?</h1>
+          <h1 class="text-2xl sm:text-4xl font-extrabold mb-4 leading-tight">Le train à <span class="text-emerald-400">-50%</span>, ça donne quoi ?</h1>
           <p class="text-indigo-100 max-w-2xl text-sm sm:text-base opacity-90">
             Comparez les prix actuels avec les tarifs issus de la réforme RailLibre (rachat des péages et suppression de la TVA).
           </p>
@@ -172,7 +172,7 @@
       FUEL_PRICE_EUR_PER_L: 1.75,
       TRAIN_PRICE_EUR_PER_100KM: 12,
       BUS_PRICE_EUR_PER_100KM: 6.7,
-      TRAIN_REFORM_DISCOUNT: 0.495
+      TRAIN_REFORM_DISCOUNT: 0.5
     };
 
     const journeys = new Map();
@@ -242,7 +242,7 @@
       els.busPrice.textContent = eur(busP);
       els.trainPrice.textContent = eur(trainP);
       els.trainReformPrice.textContent = eur(reformP);
-      els.trainSaving.textContent = `-${eur(trainP - reformP)} (-49,5%)`;
+      els.trainSaving.textContent = `-${eur(trainP - reformP)} (-50%)`;
       els.car2Price.textContent = eur(carT / 2);
       els.car4Price.textContent = eur(carT / 4);
 
